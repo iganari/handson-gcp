@@ -1,1 +1,2 @@
-# handson-gcp
+# Hands on GCP
+
