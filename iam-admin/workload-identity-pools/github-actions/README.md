@@ -6,26 +6,56 @@
 
 OIDC をサポートしていて、 GitHub Actions も OIDC を使えるようになったので。
 
+```
+Workload Identity 連携
+https://cloud.google.com/iam/docs/workload-identity-federation
+```
+```
+GitHub Actions からのキーなしの認証の有効化
+https://cloud.google.com/blog/ja/products/identity-security/enabling-keyless-authentication-from-github-actions
+```
+
+![](./img/01.png)
+
+
 ## 手順
 
 以下の N 個の手順が必要になる
 
-1. Workload Identity プール
-1. Workload Identity プロバイダ
+1. Workload Identity プールの作成
+1. Workload Identity プロバイダの作成
 1. Workload Identity 連携を設定および構成
 
-## 1. 
-
 ```
-gcloud beta iam workload-identity-pools create "my-pool" \
-  --project="${PROJECT_ID}" \
-  --location="global" \
-  --display-name="Demo pool"
+export _gcp_pj_id='Your GCP Project ID'
 ```
 
++ GCP と認証する
 
+```
+gcloud auth login -q
+```
 
+## 1. Workload Identity プールの作成
 
+```
+gcloud beta iam workload-identity-pools create handsongcp-wif-github \
+  --location global \
+  --display-name="Hands On GCP" \
+  --project "${_gcp_pj_id}"
+```
+
+## 2. Workload Identity プロバイダの作成
+
+```
+gcloud iam workload-identity-pools providers create-oidc "my-provider" \
+  --location global \
+  --workload-identity-pool handsongcp-wif-github \
+  --display-name="Demo provider" \
+  --attribute-mapping="google.subject=assertion.sub,attribute.actor=assertion.actor,attribute.aud=assertion.aud" \
+  --issuer-uri="https://token.actions.githubusercontent.com \
+  --project "${_gcp_pj_id}"
+```
 
 
 
