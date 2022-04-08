@@ -21,12 +21,11 @@ https://github.com/google-github-actions/auth
 
 ![](./img/00_01.png)
 
-
 ## 手順
 
-以下の N 個の手順が必要になる
+以下の 4 つの手順が必要になります
 
-1. 使用する Service Account を作成
+1. [使用する Service Account を作成](./README.md#1-使用する-service-account-を作成)
 1. Workload Identity プールの作成
 1. Workload Identity プロバイダの作成
 1. Workload Identity 連携を設定および構成
@@ -84,7 +83,7 @@ gcloud beta iam workload-identity-pools create ${_common}-pool \
   --project "${_gcp_pj_id}"
 ```
 
-+ 確認
++ 作成した Pool を確認する
 
 ```
 gcloud beta iam workload-identity-pools describe ${_common}-pool \
@@ -112,6 +111,11 @@ export _workload_identity_pool_id=$(gcloud beta iam workload-identity-pools desc
 
 ```
 echo ${_workload_identity_pool_id}
+```
+```
+### 例: 以下のような値になる
+
+projects/{GCP Project Number}/locations/global/workloadIdentityPools/{ Workload Identity Pool Name}
 ```
 
 ## 3. Workload Identity プロバイダの作成
