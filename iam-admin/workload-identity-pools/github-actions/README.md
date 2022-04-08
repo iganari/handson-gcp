@@ -19,7 +19,7 @@ GitHub | auth
 https://github.com/google-github-actions/auth
 ```
 
-![](./img/01.png)
+![](./img/00_01.png)
 
 
 ## 手順
@@ -92,12 +92,10 @@ gcloud beta iam workload-identity-pools describe ${_common}-pool \
   --project "${_gcp_pj_id}" \
   --format json
 ```
-```
-gcloud beta iam workload-identity-pools describe ${_common}-pool \
-  --location global \
-  --project "${_gcp_pj_id}" \
-  --format="value(name)"
-```
+
++ GCP コンソールから確認する
+
+![](./img/02_01.png)
 
 + `WORKLOAD_IDENTITY_POOL_ID` なるものが必要になる
   + GCP コンソールから見ると `ID` の表記があるが、これでは無いらしい
@@ -110,14 +108,15 @@ export _workload_identity_pool_id=$(gcloud beta iam workload-identity-pools desc
   --format="value(name)")
 ```
 
-+ 確認
++ ID を確認する
 
 ```
 echo ${_workload_identity_pool_id}
 ```
---> 01.png 01.mp4
 
 ## 3. Workload Identity プロバイダの作成
+
++ WIP
 
 ```
 gcloud beta iam workload-identity-pools providers create-oidc ${_common}-provider \
@@ -129,9 +128,11 @@ gcloud beta iam workload-identity-pools providers create-oidc ${_common}-provide
   --project "${_gcp_pj_id}"
 ```
 
----> ここまで
++ GCP コンソールから確認する
 
-02, movie と png
+![](./img/03_01.png)
+
+![](./img/03_02.png)
 
 ## 4. Workload Identity 連携を設定および構成
 
@@ -144,14 +145,13 @@ gcloud beta iam service-accounts add-iam-policy-binding "${_common}-sa@${_gcp_pj
   --project="${_gcp_pj_id}"
 ```
 
++ GCP コンソールから確認する
+
+![](./img/04_01.png)
+
+
+
 ---> ここまで
-
-
-movie
-
-
-
-
 
 
 
