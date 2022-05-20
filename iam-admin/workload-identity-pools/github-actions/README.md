@@ -26,18 +26,19 @@ https://github.com/google-github-actions/auth
 以下の 4 つの手順が必要になります
 
 1. [使用する Service Account を作成](./README.md#1-使用する-service-account-を作成)
-1. Workload Identity プールの作成
-1. Workload Identity プロバイダの作成
-1. Workload Identity 連携を設定および構成
+1. [Workload Identity プールの作成](./README.md#2-workload-identity-プールの作成)
+1. [Workload Identity プロバイダの作成](./README.md#3-workload-identity-プロバイダの作成)
+1. [Workload Identity 連携を設定および構成](./README.md#4-workload-identity-連携を設定および構成)
 
 ```
-export _gcp_pj_id='Your GCP Project ID'   ## GCP Project の ID
+### GCP Project の ID
+export _gcp_pj_id='Your GCP Project ID'
 
-
+### 使い回す文言(分かりやすいもの)
 export _common='handsongcp-wif-github'
-# export _workload_identity_pool_id='handsongcp-wif-github'  
-export _github_repos='iganari/handson-gcp'                 ## GitHub の Repository の固有の URL の末尾
 
+### GitHub の Repository の固有の URL の末尾 (例: https://github.com/iganari/handson-gcp)
+export _github_repos='iganari/handson-gcp'
 ```
 
 + GCP と認証する
@@ -98,7 +99,7 @@ gcloud beta iam workload-identity-pools describe ${_common}-pool \
 
 + `WORKLOAD_IDENTITY_POOL_ID` なるものが必要になる
   + GCP コンソールから見ると `ID` の表記があるが、これでは無いらしい
-  + 今回 `ID` として使うのは name で取得できるもの 
+  + 今回 `ID` として使うのは name で取得できるもの
 
 ```
 export _workload_identity_pool_id=$(gcloud beta iam workload-identity-pools describe ${_common}-pool \
@@ -113,7 +114,7 @@ export _workload_identity_pool_id=$(gcloud beta iam workload-identity-pools desc
 echo ${_workload_identity_pool_id}
 ```
 ```
-### 例: 以下のような値になる
+### 例: 以下のような値になる ( GCP Project Number は GCP コンソールから確認出来る )
 
 projects/{GCP Project Number}/locations/global/workloadIdentityPools/{ Workload Identity Pool Name}
 ```
@@ -140,7 +141,7 @@ gcloud beta iam workload-identity-pools providers create-oidc ${_common}-provide
 
 ## 4. Workload Identity 連携を設定および構成
 
-
++ hoge
 
 ```
 gcloud beta iam service-accounts add-iam-policy-binding "${_common}-sa@${_gcp_pj_id}.iam.gserviceaccount.com" \
