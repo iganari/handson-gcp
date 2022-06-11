@@ -4,6 +4,8 @@
 
 Pub/Sub に来たデータを Slack の特定のチャンネルに投稿できるようにします
 
+![](./img/0-01.png)
+
 ## ハンズオン
 
 ## 1. Incoming Webhook の作成
@@ -105,7 +107,7 @@ gcloud beta pubsub topics publish ${_common}-topic \
 
 ## リソースの削除
 
-実験が終わったら今回作成したリソースを削除しましょう.
+実験が終わったら今回作成したリソースを削除しましょう! :D
 
 <details>
 <summary>Details</summary>
