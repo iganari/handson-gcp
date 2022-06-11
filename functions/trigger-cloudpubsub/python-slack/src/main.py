@@ -14,7 +14,7 @@ def send_slack(event, context):
 
     ### Slack 投稿データ
     slack_post_data = {}
-    slack_post_data['username'] = 'pkg-gcp-python-slack'
+    slack_post_data['username'] = 'handson-gcp-python-slack'
     slack_post_data['icon_emoji'] = ':ghost:'
     slack_post_data['link_names'] = '0'
     slack_post_data['text'] = pubsub_message

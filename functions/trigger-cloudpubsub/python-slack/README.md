@@ -1,15 +1,10 @@
 # Pub/Sub に来たデータを Slack の特定のチャンネルに投稿する
 
-# Python | Basic Slack
-
 ## 概要
 
 Pub/Sub に来たデータを Slack の特定のチャンネルに投稿できるようにします
 
----> ハンズオン
-
-
-## やってみる
+## ハンズオン
 
 ## 1. Incoming Webhook の作成
 
@@ -32,7 +27,7 @@ export _common='python-slack'
 export _slack_webhook_url='1 で取得しておいた Incoming Webhook の Webhook URL を入れる'
 ```
 
-## 3. Secret Manager
+## 3. Secret Manager の作成
 
 + Secret Manager に Slack の Incoming Webhook を格納しておきます
 
@@ -43,7 +38,7 @@ echo -n "${_slack_webhook_url}" | gcloud beta secrets create SLACK_WEBHOOK_URL -
 ![](./img/3-01.png)
 
 
-## 4. IAM
+## 4. IAM の設定
 
 + Service Account を作成します
 
@@ -106,13 +101,17 @@ gcloud beta pubsub topics publish ${_common}-topic \
 
 ![](./img/7-01.png)
 
-
 ---> これで Pub/Sub に来たデータを Slack の特定のチャンネルに投稿できるようになりました :)
-
 
 ## リソースの削除
 
-+ Cloud Functions の削除
+実験が終わったら今回作成したリソースを削除しましょう.
+
+<details>
+<summary>Details</summary>
+
+
++ Cloud Functions の削除を削除します
 
 ```
 gcloud beta functions delete send_slack \
@@ -121,9 +120,10 @@ gcloud beta functions delete send_slack \
   -q
 ```
 
-+ Pub/Sub Topic の削除
++ Pub/Sub の Topic の削除します
 
 ```
 gcloud beta pubsub topics delete ${_common}-topic --project ${_gcp_pj_id}
 ```
 
+</details>
