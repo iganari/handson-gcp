@@ -103,9 +103,17 @@ gcloud beta pubsub topics publish ${_common}-topic \
 
 ![](./img/7-01.png)
 
----> これで Pub/Sub に来たデータを Slack の特定のチャンネルに投稿できるようになりました :)
+---> Pub/Sub に来たデータを Slack の特定のチャンネルに投稿出来ました!! :)
 
-## リソースの削除
+## Closing
+
+ハンズオンを通じて Pub/Sub に来たデータを Slack の特定のチャンネルに投稿出来るようになりました
+
+これを応用していくことで、Google Cloud の様々な通知を Slack に集約することが出来そうです ;)
+
+Have Fan!! :)
+
+### リソースの削除
 
 実験が終わったら今回作成したリソースを削除しましょう! :D
 
