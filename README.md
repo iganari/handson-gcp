@@ -8,4 +8,4 @@
 
 ## [Pub/Sub に来たデータを Slack の特定のチャンネルに投稿する](./functions/trigger-cloudpubsub/python-slack/)
 
-![](./functions/trigger-cloudpubsub/python-slack/img/0-01.png)
+![](./https://raw.githubusercontent.com/iganari/handson-cloudpubsub-to-slack-through-cloudfunctions/main/img/0-01.png)
