@@ -136,4 +136,16 @@ gcloud beta functions delete send_slack \
 gcloud beta pubsub topics delete ${_common}-topic --project ${_gcp_pj_id}
 ```
 
++ Secret を削除します
+
+```
+gcloud beta secrets delete SLACK_WEBHOOK_URL --project ${_gcp_pj_id}
+```
+
++ Service Account を削除します
+
+```
+gcloud beta iam service-accounts delete sa-func-${_common}@${_gcp_pj_id}.iam.gserviceaccount.com --project ${_gcp_pj_id}
+```
+
 </details>
