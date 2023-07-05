@@ -6,4 +6,6 @@
 
 [Hands On reCAPTCHA Enterprise on Cloud Armor](./net-security/securitypolicies/recaptcha-enterprise-on-cloud-armor/README.md)
 
-[Pub/Sub に来たデータを Slack の特定のチャンネルに投稿する](./functions/trigger-cloudpubsub/python-slack/)
+## [Pub/Sub に来たデータを Slack の特定のチャンネルに投稿する](./functions/trigger-cloudpubsub/python-slack/)
+
+![](https://raw.githubusercontent.com/iganari/handson-cloudpubsub-to-slack-through-cloudfunctions/main/img/0-01.png)
