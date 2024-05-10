@@ -1,4 +1,4 @@
-TBD
+# Hands On pgAdmin4 on Cloud Run to Cloud SQL
 
 
-handson-run-pgadmin4-sql
+https://github.com/iganari/handson-run-pgadmin4-sql
