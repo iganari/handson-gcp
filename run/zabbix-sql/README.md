@@ -12,5 +12,5 @@
 
 - Zabbix の要件
   - https://www.zabbix.com/documentation/7.0/en/manual/installation/requirements
-- hands on
+- hands on (Private Repository)
   - https://github.com/iganari/handson-run-zabbix-sql
